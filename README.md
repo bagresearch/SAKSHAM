@@ -2,94 +2,77 @@
 
 ## Smart Adaptive Knowledge-based Soil Hydration & Automation Module
 
-> **Developed by Saswata Bag**\
+> Developed by **Saswata Bag**  
 > **SB.Chetak Innovation**
 
-------------------------------------------------------------------------
+---
 
 ## Overview
 
-SAKSHAM is an IoT-enabled smart irrigation system that monitors soil
-moisture, temperature, humidity, rainfall, and ambient light to automate
-irrigation. The platform uses embedded sensing and adaptive control
-logic to prevent overwatering, reduce freshwater consumption, improve
-plant health, and support sustainable irrigation practices.
+SAKSHAM is an intelligent embedded irrigation system built around the **Original Arduino Mega 2560**. It monitors soil moisture, temperature, humidity, rainfall, and ambient light, and automatically controls irrigation using adaptive logic. A GSM module sends SMS notifications for important events such as irrigation status and rainfall detection.
 
 ## Features
 
--   Automatic irrigation control
--   Soil moisture monitoring
--   Temperature & humidity sensing
--   Rain detection
--   Ambient light sensing
--   Relay-controlled water pump
--   LCD status display
--   IoT-ready architecture
--   Low-cost and scalable
+- Automatic irrigation
+- Soil moisture monitoring
+- Temperature & humidity sensing
+- Rain detection
+- Ambient light sensing
+- GSM SMS alerts
+- Relay-controlled pump
+- LCD status display
+- Modular architecture
 
-## Hardware
+## System Architecture
 
--   ESP32 / Arduino
--   Soil Moisture Sensor
--   DHT11/DHT22
--   Rain Sensor
--   LDR
--   Relay Module
--   Water Pump
--   LCD Display
-
-## Software
-
--   Arduino IDE
--   Embedded C/C++
--   ESP32 Framework
-
-## Architecture
-
-``` mermaid
+```mermaid
 graph LR
-A[Soil Sensor]-->E[ESP32]
-B[DHT]-->E
-C[Rain]-->E
+A[Soil Moisture]-->E[Arduino Mega 2560]
+B[DHT11/DHT22]-->E
+C[Rain Sensor]-->E
 D[LDR]-->E
 E-->F[Relay]
-F-->G[Pump]
-E-->H[LCD]
+F-->G[Water Pump]
+E-->H[16x2 LCD]
+E-->I[SIM800L GSM]
+I-->J[SMS Alerts]
 ```
 
 ## Workflow
 
-``` mermaid
+```mermaid
 flowchart TD
 A(Start)-->B(Read Sensors)
-B-->C{Need Water?}
+B-->C{Soil Dry?}
 C--Yes-->D(Pump ON)
 C--No-->E(Pump OFF)
-D-->F(Update LCD)
+D-->F(Send SMS)
 E-->F
-F-->B
+F-->G(Update LCD)
+G-->B
 ```
 
-## Applications
+## Hardware
 
--   Smart Irrigation
--   Home Gardens
--   Greenhouses
--   Nurseries
--   Research
--   Education
+- Original Arduino Mega 2560
+- SIM800L/SIM900 GSM Module
+- Soil Moisture Sensor
+- DHT11/DHT22
+- Rain Sensor
+- LDR
+- Relay Module
+- DC Water Pump
+- 16x2 I2C LCD
 
-## Future Scope
+## Software
 
--   Mobile App
--   Cloud Dashboard
--   AI Prediction
--   Weather Integration
--   LoRa Connectivity
+- Arduino IDE
+- Embedded C/C++
+- Arduino Libraries
 
 ## Repository Structure
 
-``` text
+```text
 SAKSHAM/
 ├── Firmware/
 ├── Hardware/
@@ -100,9 +83,17 @@ SAKSHAM/
 └── README.md
 ```
 
+## Applications
+
+- Smart Irrigation
+- Home Gardens
+- Greenhouses
+- Research
+- Education
+
 ## License
 
-Copyright © 2026 **SB.Chetak Innovation**
+Copyright © 2026 SB.Chetak Innovation.
 
 Licensed under the BagResearch License.
 
@@ -110,6 +101,8 @@ Licensed under the BagResearch License.
 
 **Saswata Bag**
 
-Embedded Systems Engineer \| IoT Developer \| Hardware Innovator
+Embedded Systems Engineer | IoT Developer | Hardware Innovator
 
-Website: https://www.bagresearch.co.in Email: projects@bagresearch.co.in
+Website: https://www.bagresearch.co.in
+
+Email: projects@bagresearch.co.in
