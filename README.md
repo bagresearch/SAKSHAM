@@ -105,4 +105,4 @@ Embedded Systems Engineer | IoT Developer | Hardware Innovator
 
 Website: https://www.bagresearch.co.in
 
-Email: projects@bagresearch.co.in
+Email: projects@bagresearch.co.in .
